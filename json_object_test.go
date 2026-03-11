@@ -13,6 +13,11 @@ type Customer struct {
 	Age int
 }
 
+type User struct {
+	Name string
+	Age int
+}
+
 // Convert golang type to JSON Object using json.Marshal func
 func TestJSONObject(t *testing.T) {
 	customer := Customer{
@@ -28,4 +33,13 @@ func TestJSONObject(t *testing.T) {
 
 	fmt.Println("bytes:", bytes)
 	fmt.Println("string(bytes):", string(bytes))
+
+	user := User{Name: "Parar", Age: 20}
+	userBytes, err := json.Marshal(user)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("userBytes:", userBytes)
+	fmt.Println("string(userBytes):", string(userBytes))
 }
