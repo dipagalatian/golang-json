@@ -13,9 +13,16 @@ import (
 // 	Age int
 // }
 
+type Address struct {
+	City string
+	Country string
+}
+
 type Person struct {
 	Name string
 	Age int
+	Hobbies []string
+	Addresses []Address
 }
 
 // Convert JSON to golang type using json.Unmarshal
@@ -36,13 +43,15 @@ func TestDecodeJSON(t *testing.T) {
 	fmt.Println("dataBytes:", dataBytes)
 	fmt.Println("customer:", customer)
 
-	personData := `{"Name":"Parar","Age":20}`
+	personData := `{"Name":"Parar","Age":20,"Hobbies":["Coding","Gaming"],"Addresses":[{"City":"New York","Country":"USA"}]}`
 
 	person := &Person{}
 	json.Unmarshal([]byte(personData), person)
 
 	fmt.Println("person:", person)
 	fmt.Println("Person name:", person.Name)
+	fmt.Println("Person hobbies:", person.Hobbies[0])
 
+	fmt.Println("Person address:", person.Addresses[0].City)
 
 }
