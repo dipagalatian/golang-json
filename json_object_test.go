@@ -33,7 +33,7 @@ func TestJSONObject(t *testing.T) {
 	}
 
 	// fmt.Println("bytes:", bytes)
-	fmt.Println("string(bytes):", string(bytes))
+	fmt.Println("string(bytes) of customer:", string(bytes))
 
 	user := User{Name: "Parar", Age: 20, Hobbies: []string{"Coding", "Gaming"}}
 	userBytes, err := json.Marshal(user)

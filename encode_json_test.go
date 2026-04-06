@@ -14,6 +14,16 @@ func logJson(data any) {
 		panic(err)
 	}
 	fmt.Println(string(bytes))
+	fmt.Printf("Type data: %T\n", data)
+}
+
+func LoginUser(data any) {
+	bytes, err := json.Marshal(data)
+	if err != nil {
+		panic(err)
+	}
+	dataStr := string(bytes)
+	fmt.Println("Login data: ", dataStr)
 }
 
 func TestEncode(t *testing.T) {
@@ -21,4 +31,10 @@ func TestEncode(t *testing.T) {
 	logJson(1)
 	logJson(true)
 	logJson([]string{"satu", "dua", "tiga"})
+
+	LoginUser(map[string]string{
+		"id": "1",
+		"name": "dipa",
+		"email": "dipa@gmail.com",
+	})
 }
